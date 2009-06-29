@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewtonRaphsonIRRCalculator", "NewtonRaphsonIRRCalculator.csproj", "{2DC32CE7-FA95-45D2-93C7-0FA699D07B6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRRViewer", "..\IRRViewer\IRRViewer.csproj", "{74D7F367-9481-4E40-88AC-7F2F7031CB14}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRRWinformsViewer", "..\IRRWinformsViewer\IRRWinformsViewer.csproj", "{B2170739-3C5C-4BAF-A72C-62C614C54CC8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,14 +13,6 @@ Global
 		{2DC32CE7-FA95-45D2-93C7-0FA699D07B6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DC32CE7-FA95-45D2-93C7-0FA699D07B6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DC32CE7-FA95-45D2-93C7-0FA699D07B6D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{74D7F367-9481-4E40-88AC-7F2F7031CB14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74D7F367-9481-4E40-88AC-7F2F7031CB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74D7F367-9481-4E40-88AC-7F2F7031CB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74D7F367-9481-4E40-88AC-7F2F7031CB14}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B2170739-3C5C-4BAF-A72C-62C614C54CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2170739-3C5C-4BAF-A72C-62C614C54CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2170739-3C5C-4BAF-A72C-62C614C54CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2170739-3C5C-4BAF-A72C-62C614C54CC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
