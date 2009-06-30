@@ -9,7 +9,7 @@ namespace Zainco.NewtonRaphson.IRRCalculator
         public static void Main()
         {
             var calculator = NewtonRaphsonIRRCalculator.Instance;
-            calculator.CashFlows = new List<double> { -3000, 510, 131, -100, 9845, 43, 5267 };
+            calculator.CashFlows = new List<double> { -3000, 510, 131, 100, 9845, 43, 5267 };
             calculator.OnDataPointGenerated += new EventHandler<IRRCalculatorEventArgs>(Calculator_OnDataPointGenerated);
             Console.WriteLine(calculator.Execute());
         }
