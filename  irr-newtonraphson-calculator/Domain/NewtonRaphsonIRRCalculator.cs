@@ -69,7 +69,7 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         {
             get
             {
-                double initialGuess = -1 * (1 + (CashFlows[1] / CashFlows[0]));
+                var initialGuess = -1 * (1 + (CashFlows[1] / CashFlows[0]));
                 return initialGuess;
             }
         }
@@ -124,9 +124,9 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         /// <returns></returns>
         private double SumOfIRRPolynomial(double estimatedReturnRate)
         {
-            double sumOfPolynomial = 0;
+            var sumOfPolynomial = 0d;
             if (IsValidIterationBounds(estimatedReturnRate))
-                for (int j = 0; j < CashFlows.Length; j++)
+                for (var j = 0; j < CashFlows.Length; j++)
                 {
                     sumOfPolynomial += CashFlows[j] / (Math.Pow((1 + estimatedReturnRate), j));
                 }
@@ -143,7 +143,7 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         private bool HasConverged(double estimatedReturnRate)
         {
             //Check that the calculated value makes the IRR polynomial zero.
-            bool isWithinTolerance = Math.Abs(SumOfIRRPolynomial(estimatedReturnRate)) <= ConfigurationHelper.Tolerance;
+            var isWithinTolerance = Math.Abs(SumOfIRRPolynomial(estimatedReturnRate)) <= ConfigurationHelper.Tolerance;
             return (isWithinTolerance) ? true : false;
         }
 
@@ -154,9 +154,9 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         /// <returns></returns>
         private double IRRDerivativeSum(double estimatedReturnRate)
         {
-            double sumOfDerivative = 0;
+            var sumOfDerivative = 0d;
             if (IsValidIterationBounds(estimatedReturnRate))
-                for (int i = 1; i < CashFlows.Length; i++)
+                for (var i = 1; i < CashFlows.Length; i++)
                 {
                     sumOfDerivative += CashFlows[i] * (i) / Math.Pow((1 + estimatedReturnRate), i);
                 }
