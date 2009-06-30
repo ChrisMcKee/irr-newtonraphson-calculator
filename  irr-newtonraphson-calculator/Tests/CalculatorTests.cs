@@ -28,7 +28,6 @@ namespace Tests
         {
             var cashFlows = new double[7] { 3000, 510, 131, -100, 9845, 43, 52867 };
             var calculator = new NewtonRaphsonIRRCalculator(cashFlows);
-
             calculator.Execute();
         }
     }
