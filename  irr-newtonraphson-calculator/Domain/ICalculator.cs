@@ -8,7 +8,8 @@
         /// </summary>
         /// <returns></returns>
         double Execute();
-
+        bool IsValidCashFlows { get; }
         event OnDataPointGeneratedHandler OnDataPointGenerated;
+        double[] CashFlows { get; set; }
     }
 }

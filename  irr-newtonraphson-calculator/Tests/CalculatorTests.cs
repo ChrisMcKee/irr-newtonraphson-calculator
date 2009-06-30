@@ -14,9 +14,8 @@ namespace Tests
         [Test]
         public void TestConvergence()
         {
-            var cashFlows = new double[7] { -3000, 510, 131, -100, 9845, 43, 52867 };
-            var calculator = new NewtonRaphsonIRRCalculator(cashFlows);
-
+            var calculator = NewtonRaphsonIRRCalculator.Instance;
+            calculator.CashFlows = new double[7] { -3000, 510, 131, -100, 9845, 43, 52867 };
             var expectedRateOfReturn = 0.77d;
             var actualRateOfReturn = calculator.Execute();
             Assert.AreEqual(expectedRateOfReturn, Math.Round(actualRateOfReturn,2), "The expected rate of return did not match");
@@ -26,8 +25,8 @@ namespace Tests
         [ExpectedException(typeof(IRRCalculationException))]
         public void Test_Should_Throw_Expected_Exception()
         {
-            var cashFlows = new double[7] { 3000, 510, 131, -100, 9845, 43, 52867 };
-            var calculator = new NewtonRaphsonIRRCalculator(cashFlows);
+            var calculator = NewtonRaphsonIRRCalculator.Instance;
+            calculator.CashFlows = new double[7] { 3000, 510, 131, -100, 9845, 43, 52867 };
             calculator.Execute();
         }
     }

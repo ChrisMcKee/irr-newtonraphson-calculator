@@ -26,26 +26,24 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
 {
     public class NewtonRaphsonIRRCalculator : ICalculator
     {
-        private readonly double[] _cashFlows;
+        //private readonly double[] _cashFlows;
         private int _numberOfIterations;
         private double _result;
 
-        public NewtonRaphsonIRRCalculator(double[] cashFlows)
-        {
-            _cashFlows = cashFlows;
-        }
+        public double[] CashFlows { get; set; }
 
-        public NewtonRaphsonIRRCalculator()
+        public static ICalculator Instance
         {
+            get
+            { return new NewtonRaphsonIRRCalculator(); }
         }
-
         /// <summary>
         /// Gets a value indicating whether this instance is valid cash flows.
         /// </summary>
         /// <value>
         /// 	<c>true</c> if this instance is valid cash flows; otherwise, <c>false</c>.
         /// </value>
-        private bool IsValidCashFlows
+        public bool IsValidCashFlows
         {
             //Cash flows for the first period must be positive
             //There should be at least two cash flow periods         
@@ -53,7 +51,7 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
             {
                 const int MIN_NO_CASH_FLOW_PERIODS = 2;
 
-                if (_cashFlows.Length < MIN_NO_CASH_FLOW_PERIODS || (_cashFlows[0] > 0))
+                if (CashFlows.Length < MIN_NO_CASH_FLOW_PERIODS || (CashFlows[0] > 0))
                 {
                     throw new ArgumentOutOfRangeException(
                         "Cash flow for the first period  must be negative and there should");
@@ -70,7 +68,7 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         {
             get
             {
-                double initialGuess = -1*(1 + (_cashFlows[1]/_cashFlows[0]));
+                double initialGuess = -1 * (1 + (CashFlows[1] / CashFlows[0]));
                 return initialGuess;
             }
         }
@@ -127,9 +125,9 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         {
             double sumOfPolynomial = 0;
             if (IsValidIterationBounds(estimatedReturnRate))
-                for (int j = 0; j < _cashFlows.Length; j++)
+                for (int j = 0; j < CashFlows.Length; j++)
                 {
-                    sumOfPolynomial += _cashFlows[j]/(Math.Pow((1 + estimatedReturnRate), j));
+                    sumOfPolynomial += CashFlows[j] / (Math.Pow((1 + estimatedReturnRate), j));
                 }
             return sumOfPolynomial;
         }
@@ -157,9 +155,9 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         {
             double sumOfDerivative = 0;
             if (IsValidIterationBounds(estimatedReturnRate))
-                for (int i = 1; i < _cashFlows.Length; i++)
+                for (int i = 1; i < CashFlows.Length; i++)
                 {
-                    sumOfDerivative += _cashFlows[i]*(i)/Math.Pow((1 + estimatedReturnRate), i);
+                    sumOfDerivative += CashFlows[i] * (i) / Math.Pow((1 + estimatedReturnRate), i);
                 }
             return sumOfDerivative*-1;
         }
@@ -175,11 +173,6 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         {
             return estimatedReturnRate != -1 && (estimatedReturnRate < int.MaxValue) &&
                    (estimatedReturnRate > int.MinValue);
-        }
-
-        public static NewtonRaphsonIRRCalculator Instance()
-        {
-            return new NewtonRaphsonIRRCalculator();
         }
     }
 }

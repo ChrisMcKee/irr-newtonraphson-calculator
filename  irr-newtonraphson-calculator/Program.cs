@@ -8,7 +8,7 @@ namespace Zainco.NewtonRaphson.IRRCalculator
         public static void Main()
         {
             var cashFlows = new double[7] {-3000, 510, 131, -100, 9845, 43, 52867};
-            var calculator = new NewtonRaphsonIRRCalculator(cashFlows);
+            var calculator = NewtonRaphsonIRRCalculator.Instance;
 
             Console.WriteLine(calculator.Execute());
         }
