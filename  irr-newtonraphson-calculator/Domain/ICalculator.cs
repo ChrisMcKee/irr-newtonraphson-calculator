@@ -1,4 +1,5 @@
-﻿namespace Zainco.NewtonRaphson.IRRCalculator.Domain
+﻿using System;
+namespace Zainco.NewtonRaphson.IRRCalculator.Domain
 {
     public delegate void OnDataPointGeneratedHandler(object sender, IRRCalculatorEventArgs args);
     public interface ICalculator
@@ -9,7 +10,7 @@
         /// <returns></returns>
         double Execute();
         bool IsValidCashFlows { get; }
-        event OnDataPointGeneratedHandler OnDataPointGenerated;
+        event EventHandler<IRRCalculatorEventArgs> OnDataPointGenerated;
         double[] CashFlows { get; set; }
     }
 }

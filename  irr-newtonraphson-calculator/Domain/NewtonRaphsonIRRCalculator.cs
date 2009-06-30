@@ -91,11 +91,12 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
 
         private void RaiseEvent()
         {
-            if (OnDataPointGenerated != null)
-                OnDataPointGenerated(this, new IRRCalculatorEventArgs(_result, _numberOfIterations));
+            var dataPointGenerated = OnDataPointGenerated;
+            if (dataPointGenerated != null)
+                dataPointGenerated(this, new IRRCalculatorEventArgs(_result, _numberOfIterations));
         }
 
-        public event OnDataPointGeneratedHandler OnDataPointGenerated;
+        public event EventHandler<IRRCalculatorEventArgs> OnDataPointGenerated;
 
         #endregion
 
