@@ -27,6 +27,7 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
     public class NewtonRaphsonIRRCalculator : ICalculator
     {
         //private readonly double[] _cashFlows;
+        internal NewtonRaphsonIRRCalculator() { }
         private int _numberOfIterations;
         private double _result;
 
