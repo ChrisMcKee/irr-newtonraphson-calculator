@@ -35,6 +35,10 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
             _cashFlows = cashFlows;
         }
 
+        public NewtonRaphsonIRRCalculator()
+        {
+        }
+
         /// <summary>
         /// Gets a value indicating whether this instance is valid cash flows.
         /// </summary>
@@ -171,6 +175,11 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         {
             return estimatedReturnRate != -1 && (estimatedReturnRate < int.MaxValue) &&
                    (estimatedReturnRate > int.MinValue);
+        }
+
+        public static NewtonRaphsonIRRCalculator Instance()
+        {
+            return new NewtonRaphsonIRRCalculator();
         }
     }
 }
