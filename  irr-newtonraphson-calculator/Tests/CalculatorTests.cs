@@ -12,7 +12,7 @@ namespace Tests
     public class CalculatorTests
     {
         [Test]
-        public void TestConvergence()
+        public void Test_Should_Calculate_IRR()
         {
             var calculator = NewtonRaphsonIRRCalculator.Instance;
             calculator.CashFlows = new double[7] { -3000, 510, 131, -100, 9845, 43, 52867 };
