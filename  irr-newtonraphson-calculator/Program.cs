@@ -1,5 +1,6 @@
 ﻿using System;
 using Zainco.NewtonRaphson.IRRCalculator.Domain;
+using System.Collections.Generic;
 
 namespace Zainco.NewtonRaphson.IRRCalculator
 {
@@ -7,9 +8,8 @@ namespace Zainco.NewtonRaphson.IRRCalculator
     {
         public static void Main()
         {
-            var cashFlows = new double[7] {-3000, 510, 131, -100, 9845, 43, 52867};
             var calculator = NewtonRaphsonIRRCalculator.Instance;
-
+            calculator.CashFlows = new List<double> { -3000, 510, 131, -100, 9845, 43, 52867 };
             Console.WriteLine(calculator.Execute());
         }
     }

@@ -21,17 +21,17 @@
 
 using System;
 using Zainco.NewtonRaphson.IRRCalculator.Exceptions;
+using System.Collections.Generic;
 
 namespace Zainco.NewtonRaphson.IRRCalculator.Domain
 {
     public class NewtonRaphsonIRRCalculator : ICalculator
     {
-        //private readonly double[] _cashFlows;
         internal NewtonRaphsonIRRCalculator() { }
         private int _numberOfIterations;
         private double _result;
 
-        public double[] CashFlows { get; set; }
+        public List<double> CashFlows { get; set; }
 
         public static ICalculator Instance
         {
@@ -52,7 +52,7 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
             {
                 const int MIN_NO_CASH_FLOW_PERIODS = 2;
 
-                if (CashFlows.Length < MIN_NO_CASH_FLOW_PERIODS || (CashFlows[0] > 0))
+                if (CashFlows.Count < MIN_NO_CASH_FLOW_PERIODS || (CashFlows[0] > 0))
                 {
                     throw new ArgumentOutOfRangeException(
                         "Cash flow for the first period  must be negative and there should");
@@ -69,8 +69,7 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         {
             get
             {
-                var initialGuess = -1 * (1 + (CashFlows[1] / CashFlows[0]));
-                return initialGuess;
+                return  -1 * (1 + (CashFlows[1] / CashFlows[0]));
             }
         }
 
@@ -127,7 +126,7 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         {
             var sumOfPolynomial = 0d;
             if (IsValidIterationBounds(estimatedReturnRate))
-                for (var j = 0; j < CashFlows.Length; j++)
+                for (var j = 0; j < CashFlows.Count; j++)
                 {
                     sumOfPolynomial += CashFlows[j] / (Math.Pow((1 + estimatedReturnRate), j));
                 }
@@ -157,11 +156,11 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         {
             var sumOfDerivative = 0d;
             if (IsValidIterationBounds(estimatedReturnRate))
-                for (var i = 1; i < CashFlows.Length; i++)
+                for (var i = 1; i < CashFlows.Count; i++)
                 {
                     sumOfDerivative += CashFlows[i] * (i) / Math.Pow((1 + estimatedReturnRate), i);
                 }
-            return sumOfDerivative*-1;
+            return sumOfDerivative * -1;
         }
 
         /// <summary>
