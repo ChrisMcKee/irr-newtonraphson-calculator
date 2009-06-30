@@ -10,11 +10,11 @@ namespace Zainco.NewtonRaphson.IRRCalculator
         {
             var calculator = NewtonRaphsonIRRCalculator.Instance;
             calculator.CashFlows = new List<double> { -3000, 510, 131, -100, 9845, 43, 5267 };
-            calculator.OnDataPointGenerated += new EventHandler<IRRCalculatorEventArgs>(calculator_OnDataPointGenerated);
+            calculator.OnDataPointGenerated += new EventHandler<IRRCalculatorEventArgs>(Calculator_OnDataPointGenerated);
             Console.WriteLine(calculator.Execute());
         }
 
-        static void calculator_OnDataPointGenerated(object sender, IRRCalculatorEventArgs e)
+        static void Calculator_OnDataPointGenerated(object sender, IRRCalculatorEventArgs e)
         {
             //Plot results here
         }
