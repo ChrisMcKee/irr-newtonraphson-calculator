@@ -116,7 +116,6 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
             }
         }
 
-
         /// <summary>
         /// Sums the of IRR polynomial.
         /// </summary>
