@@ -24,11 +24,11 @@ namespace Simulation
             InitializeComponent();
         }
 
-        private void Simulation()
+        private void Plot()
         {
             var calculator = NewtonRaphsonIRRCalculator.Instance;
             //TODO Move to GUI entry
-            calculator.CashFlows = new List<double> { -6500,1500,500,140,2,-580,456,12,150,350,-2250,105,-25000, 510, 131, -100, 98,140,101,50,45, 43, 5067};
+            calculator.CashFlows = new List<double> { -600,150,500,140,2,-580,456,12,150,350,-2250,105,-2000, 510, 131, -100, 98,140,101,50,45, 43, 5067};
             
             Console.WriteLine(calculator.Execute());
 
@@ -41,7 +41,7 @@ namespace Simulation
                 Point p1 = new Point(x, y1);
 
                 irrResults.AppendAsync(Dispatcher, p1);
-                Thread.Sleep(20);
+                Thread.Sleep(5);
             }
         }
 
@@ -50,9 +50,9 @@ namespace Simulation
             irrResults = new ObservableDataSource<Point>();
             irrResults.SetXYMapping(p => p);
 
-            plotter.AddLineGraph(irrResults, 1, "IRR Convergence");
+            plotter.AddLineGraph(irrResults, 1, "IRR");
 
-            Thread simThread = new Thread(new ThreadStart(Simulation));
+            Thread simThread = new Thread(new ThreadStart(Plot));
             simThread.IsBackground = true;
             simThread.Start();
         }
