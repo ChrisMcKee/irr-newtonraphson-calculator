@@ -179,7 +179,6 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
                    (estimatedReturnRate > int.MinValue);
         }
 
-
         public List<KeyValuePair<double, double>> Results
         {
             get;set;
