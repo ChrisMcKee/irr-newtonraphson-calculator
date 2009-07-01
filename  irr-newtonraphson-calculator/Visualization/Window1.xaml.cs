@@ -28,7 +28,7 @@ namespace Simulation
         {
             var calculator = NewtonRaphsonIRRCalculator.Instance;
             //TODO Move to GUI entry
-            calculator.CashFlows = new List<double> { -6500,-1500,50,40,2,-580,456,12,150,350,-250,105,-25000, 510, 131, -100, 98,140,101,50,45, 43, -5067,100,300,-1234,1000,50,-590,1000 };
+            calculator.CashFlows = new List<double> { -6500,1500,500,140,2,-580,456,12,150,350,-2250,105,-25000, 510, 131, -100, 98,140,101,50,45, 43, 5067};
             
             Console.WriteLine(calculator.Execute());
 
