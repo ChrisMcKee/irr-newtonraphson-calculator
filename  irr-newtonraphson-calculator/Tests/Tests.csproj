@@ -8,8 +8,8 @@
     <ProjectGuid>{13F808C1-34CC-498E-A817-1C3ABEE45447}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Zainco.Newton.Raphson.Tests</RootNamespace>
-    <AssemblyName>Zainco.Newton.Raphson.Tests</AssemblyName>
+    <RootNamespace>Zainco.NewtonRaphson.IRRCalculator.Tests</RootNamespace>
+    <AssemblyName>Zainco.NewtonRaphson.IRRCalculator.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PlatformTarget>x86</PlatformTarget>

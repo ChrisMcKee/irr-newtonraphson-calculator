@@ -9,7 +9,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Zainco.NewtonRaphson.IRRCalculator</RootNamespace>
-    <AssemblyName>Zainco.IRRCalculator</AssemblyName>
+    <AssemblyName>Zainco.NewtonRaphson.IRRCalculator</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>

@@ -27,7 +27,10 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
 {
     public class NewtonRaphsonIRRCalculator : ICalculator
     {
-        internal NewtonRaphsonIRRCalculator() { }
+        internal NewtonRaphsonIRRCalculator() 
+        {
+            Results = new List<KeyValuePair<double, double>>();
+        }
         private int _numberOfIterations;
         private double _result;
 
@@ -108,6 +111,7 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         {
             _numberOfIterations++;
             _result = estimatedReturn - SumOfIRRPolynomial(estimatedReturn)/IRRDerivativeSum(estimatedReturn);
+            Results.Add(new KeyValuePair<double, double>(_numberOfIterations, _result));
 
             while (!HasConverged(_result) && ConfigurationHelper.MaxIterations != _numberOfIterations)
             {
@@ -173,6 +177,12 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         {
             return estimatedReturnRate != -1 && (estimatedReturnRate < int.MaxValue) &&
                    (estimatedReturnRate > int.MinValue);
+        }
+
+
+        public List<KeyValuePair<double, double>> Results
+        {
+            get;set;
         }
     }
 }

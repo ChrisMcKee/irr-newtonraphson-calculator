@@ -13,5 +13,6 @@ namespace Zainco.NewtonRaphson.IRRCalculator.Domain
         bool IsValidCashFlows { get; }
         event EventHandler<IRRCalculatorEventArgs> OnDataPointGenerated;
         List<double> CashFlows { get; set; }
+        List<KeyValuePair<double, double>> Results { get; set; }
     }
 }
